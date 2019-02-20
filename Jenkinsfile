@@ -13,7 +13,7 @@ podTemplate(label: label, containers: [
                 stage('Build a Maven project 33') {
                     sh '''
                         env
-                        echo '$STAGE_NAME' >> $WORKSPACE/sharedfile.txt
+                        echo 'build: BUILD_NUMBER stage: $STAGE_NAME' >> $WORKSPACE/sharedfile.txt
                         mvn -version
                        '''
                 }
@@ -26,7 +26,7 @@ podTemplate(label: label, containers: [
                 stage('Build a Maven project 36') {
                     sh '''
                        env
-                       echo '$STAGE_NAME' >> $WORKSPACE/sharedfile.txt
+                       echo 'build: BUILD_NUMBER stage: $STAGE_NAME' >> $WORKSPACE/sharedfile.txt
                        mvn -version
                        #mvn -B clean install
                        '''
@@ -40,7 +40,7 @@ podTemplate(label: label, containers: [
                 stage('Build a Golang project') {
                     sh '''
                     env
-                    echo '$STAGE_NAME' >> $WORKSPACE/sharedfile.txt
+                    echo 'build: BUILD_NUMBER stage: $STAGE_NAME' >> $WORKSPACE/sharedfile.txt
                     make version
                     #mkdir -p /go/src/github.com/hashicorp
                     #ln -s `pwd` /go/src/github.com/hashicorp/terraform
