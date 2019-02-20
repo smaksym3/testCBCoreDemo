@@ -3,10 +3,10 @@ pipeline {
     kubernetes {
       label 'mypodtemplate-v1'
       containerTemplate {
-        name: 'golang'
-        image: 'golang:1.8.0'
-        ttyEnabled: true
-        command: 'cat'
+        name 'golang'
+        image 'golang:1.8.0'
+        ttyEnabled true
+        command 'cat'
       }
       containerTemplate {
         name 'maven'
@@ -28,7 +28,7 @@ pipeline {
       steps {
         git 'https://github.com/jenkinsci/kubernetes-plugin.git'
         container('maven') {
-          sh 'mvn -B clean install'
+          sh 'mvn -B -X clean install'
         }
       }
     }
