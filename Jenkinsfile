@@ -27,7 +27,7 @@ podTemplate(label: label, containers: [
                        env
                        mvn -version
                        //mvn -B clean install
-                       ''''
+                       '''
                 }
             }
         }
