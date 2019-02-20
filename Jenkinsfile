@@ -26,7 +26,7 @@ podTemplate(label: label, containers: [
                     sh '''
                        env
                        mvn -version
-                       //mvn -B clean install
+                       #mvn -B clean install
                        '''
                 }
             }
@@ -38,9 +38,9 @@ podTemplate(label: label, containers: [
                 stage('Build a Go project') {
                     sh '''
                     env
-                    //mkdir -p /go/src/github.com/hashicorp
-                    //ln -s `pwd` /go/src/github.com/hashicorp/terraform
-                    //cd /go/src/github.com/hashicorp/terraform && make tools
+                    #mkdir -p /go/src/github.com/hashicorp
+                    #ln -s `pwd` /go/src/github.com/hashicorp/terraform
+                    #cd /go/src/github.com/hashicorp/terraform && make tools
                     '''
                 }
             }
