@@ -32,5 +32,17 @@ pipeline {
         }
       }
     }
+     stage('Get a Golang project') {
+      steps {
+        git 'https://github.com/hashicorp/terraform.git'
+        container('golang') {
+          sh '''
+                    mkdir -p /go/src/github.com/hashicorp
+                    ln -s `pwd` /go/src/github.com/hashicorp/terraform
+                    cd /go/src/github.com/hashicorp/terraform && make core-dev
+                    '''
+        }
+      }
+    }
   }
 }
