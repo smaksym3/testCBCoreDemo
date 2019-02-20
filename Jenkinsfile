@@ -18,10 +18,11 @@ pipeline {
         }
       }
     }
-    stage('Run maven2') {
+    stage('Get a Maven project') {
       steps {
+        git 'https://github.com/jenkinsci/kubernetes-plugin.git'
         container('maven') {
-          sh 'mvn -version'
+          sh 'mvn -B clean install'
         }
       }
     }
