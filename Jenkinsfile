@@ -8,13 +8,7 @@ pipeline {
         ttyEnabled true
         command 'cat'
       }
-      containerTemplate {
-        name 'maven'
-        image 'maven:3.3.9-jdk-8-alpine'
-        ttyEnabled true
-        command 'cat'
-      }
-      containerTemplate {
+       containerTemplate {
         name 'maven36'
         image 'maven:3.6.0-jdk-12-alpine'
         ttyEnabled true
@@ -33,7 +27,7 @@ pipeline {
     stage('Get a Maven project') {
       steps {
         git 'https://github.com/jenkinsci/kubernetes-plugin.git'
-        container('maven36') {
+        container('maven') {
           sh 'mvn -B -X clean install'
         }
       }
