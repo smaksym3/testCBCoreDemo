@@ -10,9 +10,10 @@ podTemplate(label: label, containers: [
         stage('Build a Maven project 33') {
             git 'https://github.com/jenkinsci/kubernetes-plugin.git'
             container('maven33') {
-                stage('Build a Maven project') {
+                stage('Build a Maven project 33') {
                     sh '''
                         env
+                        echo
                         mvn -version
                        '''
                 }
@@ -22,7 +23,7 @@ podTemplate(label: label, containers: [
         stage('Build a Maven project 36') {
             git 'https://github.com/jenkinsci/kubernetes-plugin.git'
             container('maven36') {
-                stage('Build a Maven project') {
+                stage('Build a Maven project 36') {
                     sh '''
                        env
                        mvn -version
@@ -35,15 +36,22 @@ podTemplate(label: label, containers: [
         stage('Build a Golang project') {
             git url: 'https://github.com/hashicorp/terraform.git'
             container('golang') {
-                stage('Build a Go project') {
+                stage('Build a Golang project') {
                     sh '''
                     env
+                    make version
                     #mkdir -p /go/src/github.com/hashicorp
                     #ln -s `pwd` /go/src/github.com/hashicorp/terraform
                     #cd /go/src/github.com/hashicorp/terraform && make tools
                     '''
                 }
             }
+        }
+
+        stage('finsh in the jnlp project') {
+            sh '''
+            echo hello world!
+            '''
         }
 
     }
