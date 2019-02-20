@@ -8,9 +8,9 @@ pipeline {
         ttyEnabled true
         command 'cat'
       }
-       containerTemplate {
-        name 'maven36'
-        image 'maven:3.6.0-jdk-12-alpine'
+      containerTemplate {
+        name 'maven'
+        image 'maven:3.3.9-jdk-8-alpine'
         ttyEnabled true
         command 'cat'
       }
