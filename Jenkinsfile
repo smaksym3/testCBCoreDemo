@@ -1,7 +1,7 @@
 def label = "mypod-${UUID.randomUUID().toString()}"
 podTemplate(label: label, containers: [
     containerTemplate(name: 'maven', image: 'maven:3.6.0-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
-    containerTemplate(name: 'golang', image: 'golang:1.8.0', ttyEnabled: true, command: 'cat')
+    containerTemplate(name: 'golang', image: 'golang:1.10', ttyEnabled: true, command: 'cat')
   ]) {
 
     node(label) {
@@ -21,7 +21,7 @@ podTemplate(label: label, containers: [
                     sh """
                     mkdir -p /go/src/github.com/hashicorp
                     ln -s `pwd` /go/src/github.com/hashicorp/terraform
-                    cd /go/src/github.com/hashicorp/terraform && make core-dev
+                    cd /go/src/github.com/hashicorp/terraform && make tools && make
                     """
                 }
             }
