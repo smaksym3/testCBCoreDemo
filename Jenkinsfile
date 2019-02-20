@@ -4,7 +4,7 @@ pipeline {
       label 'mypodtemplate-v1'
       containerTemplate {
         name 'golang'
-        image 'golang:1.8.0'
+        image 'golang:1.10'
         ttyEnabled true
         command 'cat'
       }
