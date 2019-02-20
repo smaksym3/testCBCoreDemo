@@ -9,7 +9,7 @@ pipeline {
         command 'cat'
       }
       containerTemplate {
-        name 'maven33'
+        name 'maven'
         image 'maven:3.3.9-jdk-8-alpine'
         ttyEnabled true
         command 'cat'
@@ -23,9 +23,9 @@ pipeline {
     }
   }
   stages {
-    stage('Run maven 3.3') {
+    stage('Run maven') {
       steps {
-        container('maven33') {
+        container('maven') {
           sh 'mvn -version'
         }
       }
