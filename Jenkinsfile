@@ -7,7 +7,7 @@ podTemplate(label: label, containers: [
 
     node(label) {
         
-        stage('Get a Maven project') {
+        stage('Build a Maven project 33') {
             git 'https://github.com/jenkinsci/kubernetes-plugin.git'
             container('maven33') {
                 stage('Build a Maven project') {
@@ -16,7 +16,7 @@ podTemplate(label: label, containers: [
             }
         }
         
-        stage('Get a Maven project') {
+        stage('Build a Maven project 36') {
             git 'https://github.com/jenkinsci/kubernetes-plugin.git'
             container('maven36') {
                 stage('Build a Maven project') {
@@ -25,7 +25,7 @@ podTemplate(label: label, containers: [
             }
         }
 
-        stage('Get a Golang project') {
+        stage('Build a Golang project') {
             git url: 'https://github.com/hashicorp/terraform.git'
             container('golang') {
                 stage('Build a Go project') {
