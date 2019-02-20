@@ -32,7 +32,7 @@ podTemplate(label: label, containers: [
                     sh """
                     mkdir -p /go/src/github.com/hashicorp
                     ln -s `pwd` /go/src/github.com/hashicorp/terraform
-                    cd /go/src/github.com/hashicorp/terraform && make tools && make
+                    cd /go/src/github.com/hashicorp/terraform && make tools
                     """
                 }
             }
